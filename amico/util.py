@@ -27,8 +27,8 @@ def fsl2scheme( bvalsFilename, bvecsFilename, schemeFilename = None, bStep = 1.0
         delimiter = kwargs.get('delimiter')
 
     # load files and check size
-    bvecs = np.loadtxt( bvecsFilename, delimiter=delimiter)
-    bvals = np.loadtxt( bvalsFilename, delimiter=delimiter )
+    bvecs = np.genfromtxt( bvecsFilename, delimiter=delimiter)
+    bvals = np.genfromtxt( bvalsFilename, delimiter=delimiter)
 
     if bvecs.ndim !=2 or bvals.ndim != 1 or bvecs.shape[0] != 3 or bvecs.shape[1] != bvals.shape[0]:
         raise RuntimeError( 'incorrect/incompatible bval/bvecs files' )
